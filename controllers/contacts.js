@@ -18,7 +18,7 @@ const getContactById = async (req, res) => {
 };
 
 const addContact = async (req, res) => {  
-  const result = await contacts.addContact(req.body);
+  const result = await contacts.addContact(req.body); 
   res.status(201).json(result);  
 };
 
