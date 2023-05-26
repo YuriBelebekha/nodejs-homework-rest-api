@@ -27,16 +27,16 @@ const updateContactById = async (req, res) => {
   if (!result) {
     throw HttpError(404, 'Not found');
   };
-  res.json(result);  
+  res.status(200).json(result);  
 };
 
-const updateFavorite = async (req, res) => {
+const updateStatusContact = async (req, res) => {
   const { contactId } = req.params;
   const result = await Contact.findByIdAndUpdate(contactId, req.body, { new: true });
   if (!result) {
     throw HttpError(404, 'Not found');
   };
-  res.json(result);
+  res.status(200).json(result);
 };
 
 const removeContactById = async (req, res) => {
@@ -45,7 +45,7 @@ const removeContactById = async (req, res) => {
   if (!result) {
     throw HttpError(404, 'Not found');
   };
-  res.json({
+  res.status(200).json({
     message: 'Delete success'
   });  
 };
@@ -55,6 +55,6 @@ module.exports = {
   getContactById: ctrlWrapper(getContactById),
   addContact: ctrlWrapper(addContact),
   updateContactById: ctrlWrapper(updateContactById),
-  updateFavorite: ctrlWrapper(updateFavorite),
+  updateStatusContact: ctrlWrapper(updateStatusContact),
   removeContactById: ctrlWrapper(removeContactById),
 };
