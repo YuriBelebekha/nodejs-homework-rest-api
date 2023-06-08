@@ -19,11 +19,7 @@ const userSchema = new Schema({
     enum: subscription,
     default: "starter"
   },
-  token: String,
-  owner: {
-    type: Schema.Types.ObjectId,
-    ref: 'user',
-  }
+  token: String,  
 }, { versionKey: false, timestamps: true });
 
 userSchema.post('save', handleMongooseError);
