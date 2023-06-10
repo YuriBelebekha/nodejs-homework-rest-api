@@ -54,9 +54,18 @@ const loginSchema = Joi.object({
     .messages({'any.required': `Password is required`}),
 });
 
+const subscriptionSchema = Joi.object({
+  subscription: Joi
+    .string()
+    .valid(...subscription)
+    .required()
+    .messages({'any.required': `Subscription is required`}),
+});
+
 const schemas = {
   registerSchema,
   loginSchema,
+  subscriptionSchema,
 };
 
 const User = model('user', userSchema);
