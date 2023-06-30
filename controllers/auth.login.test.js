@@ -1,11 +1,10 @@
-// const mongoose = require('mongoose');
 require('../server');
 require("dotenv").config();
 const app = require('../app');
 const request = require('supertest');
 
 const user = {
-  email: "yuri4@mail.com",
+  email: "fihal48306@eimatro.com",
   password: "123456",
 };
 
