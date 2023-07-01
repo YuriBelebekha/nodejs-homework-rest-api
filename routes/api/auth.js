@@ -6,12 +6,22 @@ const { schemas } = require('../../models/user');
 
 const router = express.Router();
 
+// signup
 router.post(
   '/register',
   validateBody(schemas.registerSchema),
   ctrl.register,
 );
 
+router.get('/verify/:verificationToken', ctrl.verifyEmail);
+
+router.post(
+  '/verify',
+  validateBody(schemas.verifyEmailSchema),
+  ctrl.resendVerifyEmail,
+);
+
+//signin
 router.post(
   '/login',
   validateBody(schemas.loginSchema),
